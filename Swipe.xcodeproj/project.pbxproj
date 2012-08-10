@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6A15D000A500AED527 /* UIKit.framework */; };
+		C3DF0F6D15D000A500AED527 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6C15D000A500AED527 /* Foundation.framework */; };
+		C3DF0F6F15D000A500AED527 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */; };
+		C3DF0F7515D000A500AED527 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3DF0F7315D000A500AED527 /* InfoPlist.strings */; };
+		C3DF0F7715D000A500AED527 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF0F7615D000A500AED527 /* main.m */; };
+		C3DF0F7B15D000A500AED527 /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */; };
+		C3DF0F8615D000E600AED527 /* ACMPorygonAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */; };
+		C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C30399D315D4C43400343384 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C30399CC15D4C43400343384 /* KKGridView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1A61BE0F13DCAF1F00AB4243;
+			remoteInfo = KKGridView;
+		};
+		C3DF0F9215D0C2D100AED527 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		C3DF0F9415D0C2D100AED527 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
+			remoteInfo = SSToolkitTests;
+		};
+		C3DF0F9615D0C2D100AED527 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2C507EA151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+		C3DF0F9915D0C2E600AED527 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C30399CC15D4C43400343384 /* KKGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KKGridView.xcodeproj; path = Vendor/KKGridView/KKGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C3DF0F6615D000A500AED527 /* Swipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3DF0F6A15D000A500AED527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C3DF0F6C15D000A500AED527 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C3DF0F7215D000A500AED527 /* Swipe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Swipe-Info.plist"; sourceTree = "<group>"; };
+		C3DF0F7415D000A500AED527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3DF0F7615D000A500AED527 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3DF0F7815D000A500AED527 /* Swipe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swipe-Prefix.pch"; sourceTree = "<group>"; };
+		C3DF0F7915D000A500AED527 /* ACMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMAppDelegate.h; sourceTree = "<group>"; };
+		C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMAppDelegate.m; sourceTree = "<group>"; };
+		C3DF0F8415D000E500AED527 /* ACMPorygonAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMPorygonAPIRequest.h; sourceTree = "<group>"; };
+		C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMPorygonAPIRequest.m; sourceTree = "<group>"; };
+		C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/sstoolkit/SSToolkit.xcodeproj; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3DF0F6315D000A500AED527 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */,
+				C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */,
+				C3DF0F6D15D000A500AED527 /* Foundation.framework in Frameworks */,
+				C3DF0F6F15D000A500AED527 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C30399CD15D4C43400343384 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C30399D415D4C43400343384 /* libKKGridView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3DF0F5B15D000A500AED527 = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F7015D000A500AED527 /* Swipe */,
+				C3DF0F6915D000A500AED527 /* Frameworks */,
+				C3DF0F6715D000A500AED527 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3DF0F6715D000A500AED527 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F6615D000A500AED527 /* Swipe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3DF0F6915D000A500AED527 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F6A15D000A500AED527 /* UIKit.framework */,
+				C3DF0F6C15D000A500AED527 /* Foundation.framework */,
+				C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3DF0F7015D000A500AED527 /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F7915D000A500AED527 /* ACMAppDelegate.h */,
+				C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */,
+				C3DF0F8415D000E500AED527 /* ACMPorygonAPIRequest.h */,
+				C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */,
+				C3DF0F7115D000A500AED527 /* Supporting Files */,
+				C3DF0F8715D0C2BA00AED527 /* Vendor */,
+			);
+			path = Swipe;
+			sourceTree = "<group>";
+		};
+		C3DF0F7115D000A500AED527 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F7215D000A500AED527 /* Swipe-Info.plist */,
+				C3DF0F7315D000A500AED527 /* InfoPlist.strings */,
+				C3DF0F7615D000A500AED527 /* main.m */,
+				C3DF0F7815D000A500AED527 /* Swipe-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3DF0F8715D0C2BA00AED527 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C30399CC15D4C43400343384 /* KKGridView.xcodeproj */,
+				C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C3DF0F8915D0C2D100AED527 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */,
+				C3DF0F9515D0C2D100AED527 /* SSToolkitTests.app */,
+				C3DF0F9715D0C2D100AED527 /* SSToolkitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3DF0F6515D000A500AED527 /* Swipe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3DF0F7E15D000A500AED527 /* Build configuration list for PBXNativeTarget "Swipe" */;
+			buildPhases = (
+				C3DF0F6215D000A500AED527 /* Sources */,
+				C3DF0F6315D000A500AED527 /* Frameworks */,
+				C3DF0F6415D000A500AED527 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3DF0F9A15D0C2E600AED527 /* PBXTargetDependency */,
+			);
+			name = Swipe;
+			productName = Swipe;
+			productReference = C3DF0F6615D000A500AED527 /* Swipe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3DF0F5D15D000A500AED527 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ACM;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = ACM;
+			};
+			buildConfigurationList = C3DF0F6015D000A500AED527 /* Build configuration list for PBXProject "Swipe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C3DF0F5B15D000A500AED527;
+			productRefGroup = C3DF0F6715D000A500AED527 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C30399CD15D4C43400343384 /* Products */;
+					ProjectRef = C30399CC15D4C43400343384 /* KKGridView.xcodeproj */;
+				},
+				{
+					ProductGroup = C3DF0F8915D0C2D100AED527 /* Products */;
+					ProjectRef = C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C3DF0F6515D000A500AED527 /* Swipe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C30399D415D4C43400343384 /* libKKGridView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKKGridView.a;
+			remoteRef = C30399D315D4C43400343384 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSToolkit.a;
+			remoteRef = C3DF0F9215D0C2D100AED527 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3DF0F9515D0C2D100AED527 /* SSToolkitTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SSToolkitTests.app;
+			remoteRef = C3DF0F9415D0C2D100AED527 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3DF0F9715D0C2D100AED527 /* SSToolkitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSToolkitResources.bundle;
+			remoteRef = C3DF0F9615D0C2D100AED527 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3DF0F6415D000A500AED527 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3DF0F7515D000A500AED527 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3DF0F6215D000A500AED527 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3DF0F7715D000A500AED527 /* main.m in Sources */,
+				C3DF0F7B15D000A500AED527 /* ACMAppDelegate.m in Sources */,
+				C3DF0F8615D000E600AED527 /* ACMPorygonAPIRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3DF0F9A15D0C2E600AED527 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkit;
+			targetProxy = C3DF0F9915D0C2E600AED527 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3DF0F7315D000A500AED527 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3DF0F7415D000A500AED527 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3DF0F7C15D000A500AED527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C3DF0F7D15D000A500AED527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3DF0F7F15D000A500AED527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Vendor\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Swipe/Swipe-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/sstoolkit/\"";
+				INFOPLIST_FILE = "Swipe/Swipe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3DF0F8015D000A500AED527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Vendor\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Swipe/Swipe-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/sstoolkit/\"";
+				INFOPLIST_FILE = "Swipe/Swipe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3DF0F6015D000A500AED527 /* Build configuration list for PBXProject "Swipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3DF0F7C15D000A500AED527 /* Debug */,
+				C3DF0F7D15D000A500AED527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3DF0F7E15D000A500AED527 /* Build configuration list for PBXNativeTarget "Swipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3DF0F7F15D000A500AED527 /* Debug */,
+				C3DF0F8015D000A500AED527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3DF0F5D15D000A500AED527 /* Project object */;
+}
