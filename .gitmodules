@@ -1,3 +1,6 @@
 [submodule "Vendor/SSToolkit"]
 	path = Vendor/SSToolkit
 	url = https://github.com/samsoffes/sstoolkit.git
+[submodule "Vendor/GMGridView"]
+	path = Vendor/GMGridView
+	url = https://github.com/gmoledina/GMGridView.git
