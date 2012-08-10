@@ -1,4 +1,4 @@
 Swipe
 =====
 
-iPad app register. For use with Porygon
+iPad register app. For use with Porygon
