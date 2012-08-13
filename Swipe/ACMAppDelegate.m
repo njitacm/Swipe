@@ -8,18 +8,28 @@
 
 #import "ACMAppDelegate.h"
 #import "ACMPorygonAPIRequest.h"
+#import "ACMRootViewController.h"
 
 @implementation ACMAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+- (void)_setupAppearance {
+	[[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:0.85 alpha:1.0]];
+	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBar"] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self _setupAppearance];
+	
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
 	[ACMPorygonAPIRequest setConsumerToken:@""];
 	[ACMPorygonAPIRequest setSecretToken:@""];
+	
+	ACMRootViewController *rootViewController = [[ACMRootViewController alloc] init];
+	self.window.rootViewController = rootViewController;
 	
     return YES;
 }
