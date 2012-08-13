@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C342CB7915D4C85A00B18E1E /* libGMGridView.a */; };
+		C359A52315D874F30020D52A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A52215D874F30020D52A /* background.png */; };
+		C359A52615D875120020D52A /* ACMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C359A52515D875120020D52A /* ACMRootViewController.m */; };
+		C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C359A53015D877030020D52A /* QuartzCore.framework */; };
+		C359A53315D87AE00020D52A /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A53215D87AE00020D52A /* navBar.png */; };
 		C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6A15D000A500AED527 /* UIKit.framework */; };
 		C3DF0F6D15D000A500AED527 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6C15D000A500AED527 /* Foundation.framework */; };
 		C3DF0F6F15D000A500AED527 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */; };
@@ -65,6 +69,11 @@
 
 /* Begin PBXFileReference section */
 		C342CB7115D4C85A00B18E1E /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = Vendor/GMGridView/GMGridView/GMGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C359A52215D874F30020D52A /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		C359A52415D875120020D52A /* ACMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMRootViewController.h; sourceTree = "<group>"; };
+		C359A52515D875120020D52A /* ACMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMRootViewController.m; sourceTree = "<group>"; };
+		C359A53015D877030020D52A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C359A53215D87AE00020D52A /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		C3DF0F6615D000A500AED527 /* Swipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF0F6A15D000A500AED527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3DF0F6C15D000A500AED527 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */,
 				C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */,
 				C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */,
 				C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */,
@@ -102,6 +112,15 @@
 				C342CB7915D4C85A00B18E1E /* libGMGridView.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C359A52015D874E80020D52A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C359A53215D87AE00020D52A /* navBar.png */,
+				C359A52215D874F30020D52A /* background.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		C3DF0F5B15D000A500AED527 = {
@@ -124,6 +143,7 @@
 		C3DF0F6915D000A500AED527 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C359A53015D877030020D52A /* QuartzCore.framework */,
 				C3DF0F6A15D000A500AED527 /* UIKit.framework */,
 				C3DF0F6C15D000A500AED527 /* Foundation.framework */,
 				C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */,
@@ -138,6 +158,8 @@
 				C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */,
 				C3DF0F8415D000E500AED527 /* ACMPorygonAPIRequest.h */,
 				C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */,
+				C359A52415D875120020D52A /* ACMRootViewController.h */,
+				C359A52515D875120020D52A /* ACMRootViewController.m */,
 				C3DF0F7115D000A500AED527 /* Supporting Files */,
 				C3DF0F8715D0C2BA00AED527 /* Vendor */,
 			);
@@ -147,6 +169,7 @@
 		C3DF0F7115D000A500AED527 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C359A52015D874E80020D52A /* Images */,
 				C3DF0F7215D000A500AED527 /* Swipe-Info.plist */,
 				C3DF0F7315D000A500AED527 /* InfoPlist.strings */,
 				C3DF0F7615D000A500AED527 /* main.m */,
@@ -270,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DF0F7515D000A500AED527 /* InfoPlist.strings in Resources */,
+				C359A52315D874F30020D52A /* background.png in Resources */,
+				C359A53315D87AE00020D52A /* navBar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +308,7 @@
 				C3DF0F7715D000A500AED527 /* main.m in Sources */,
 				C3DF0F7B15D000A500AED527 /* ACMAppDelegate.m in Sources */,
 				C3DF0F8615D000E600AED527 /* ACMPorygonAPIRequest.m in Sources */,
+				C359A52615D875120020D52A /* ACMRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
