@@ -62,8 +62,6 @@
 	_cartTableView.dataSource = self;
 	_cartTableView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
 	
-	[_cartTableView addObserver:self forKeyPath:@"editing" options:0 context:NULL];
-	
 	[self.contentView addSubview:_cartTableView];
 	
 }
@@ -80,7 +78,15 @@
 #pragma mark - Actions
 
 - (void)_toggleEditing:(id)sender {
-	[_cartTableView setEditing:!_cartTableView.editing animated:YES];
+	if(_cartTableView.editing) {
+		[_cartTableView setEditing:NO animated:YES];
+		
+		[self.navigationItem setRightBarButtonItem:_editBarButtonItem animated:YES];
+	} else {
+		[_cartTableView setEditing:YES animated:YES];
+		
+		[self.navigationItem setRightBarButtonItem:_doneBarButtonItem animated:YES];
+	}
 }
 
 #pragma mark -
@@ -96,22 +102,6 @@
 	}
 	
 	return _contentView;
-}
-
-#pragma mark -
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if([keyPath isEqualToString:@"editing"] && object == _cartTableView) {
-		NSLog(@"%@", change);
-		
-		if(_cartTableView.editing) {
-			
-		}
-		
-		return;
-	}
-	
-	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 #pragma mark - UITableViewDataSource
