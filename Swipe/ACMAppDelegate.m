@@ -15,6 +15,11 @@
 - (void)_setupAppearance {
 	[[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:0.85 alpha:1.0]];
 	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBar"] forBarMetrics:UIBarMetricsDefault];
+	[[UINavigationBar appearance] setTitleTextAttributes:@{
+								UITextAttributeTextColor: [UIColor colorWithWhite:0.25 alpha:1.0],
+						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:1.0 alpha:1.0],
+						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0) ]
+	 }];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
