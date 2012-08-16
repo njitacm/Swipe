@@ -16,10 +16,22 @@
 	[[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:0.85 alpha:1.0]];
 	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBar"] forBarMetrics:UIBarMetricsDefault];
 	[[UINavigationBar appearance] setTitleTextAttributes:@{
-								UITextAttributeTextColor: [UIColor colorWithWhite:0.25 alpha:1.0],
+								UITextAttributeTextColor: [UIColor colorWithWhite:0.35 alpha:1.0],
 						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:1.0 alpha:1.0],
-						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0) ]
+						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0)]
 	 }];
+	
+	[[UIBarButtonItem appearance] setTitleTextAttributes:@{
+								UITextAttributeTextColor: [UIColor colorWithWhite:0.35 alpha:1.0],
+						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:1.0 alpha:1.0],
+						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0)]
+	 } forState:UIControlStateNormal];
+	
+	[[UIBarButtonItem appearance] setTitleTextAttributes:@{
+								UITextAttributeTextColor: [UIColor colorWithWhite:0.25 alpha:1.0],
+						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:0.9 alpha:1.0],
+						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0)]
+	 } forState:UIControlStateHighlighted];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -30,8 +42,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-	[ACMPorygonAPIRequest setConsumerToken:@""];
-	[ACMPorygonAPIRequest setSecretToken:@""];
+	[ACMPorygonAPIRequest setConsumerToken:@"rUYGlYG7MRxisyrH0Nh9Wq"];
+	[ACMPorygonAPIRequest setSecretToken:@"rFzoQiIkQlkACeWFvBgPicgDLXhVEKXzqQFVQA1JZ"];
 	
 	ACMRootViewController *rootViewController = [[ACMRootViewController alloc] init];
 	self.window.rootViewController = rootViewController;
