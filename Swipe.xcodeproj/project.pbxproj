@@ -398,6 +398,10 @@
 				GCC_PREFIX_HEADER = "Swipe/Swipe-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/sstoolkit/\"";
 				INFOPLIST_FILE = "Swipe/Swipe-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -411,6 +415,10 @@
 				GCC_PREFIX_HEADER = "Swipe/Swipe-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/sstoolkit/\"";
 				INFOPLIST_FILE = "Swipe/Swipe-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
