@@ -15,7 +15,7 @@
 #if defined(DEBUG)
 NSString *const ACMPorygonAPIRoot = @"http://porygon.dev/api/1/";
 #else
-NSString *const ACMPorygonAPIRoot = @"";
+NSString *const ACMPorygonAPIRoot = @""; // TODO: Fill this in with the production URL once Porygon goes live.
 #endif
 
 static NSString *ACMPorygonAPIRequestConsumerToken = nil;
@@ -55,7 +55,9 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 	[_requestData setObject:ACMPorygonAPIRequestConsumerToken forKey:@"api_token"];
 	[_requestData setObject:[NSNumber numberWithLong:time(NULL)] forKey:@"api_timestamp"];
 	
-	NSData *formComponents = [[_requestData stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding];
+	NSString *requestData = [_requestData stringWithFormEncodedComponents];
+	
+	NSData *formComponents = [requestData dataUsingEncoding:NSUTF8StringEncoding];
 	NSData *secretData = [ACMPorygonAPIRequestSecretToken dataUsingEncoding:NSUTF8StringEncoding];
 	
 	uint8_t digest[CC_SHA512_DIGEST_LENGTH];
@@ -68,9 +70,7 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 		[signature appendFormat:@"%02x", digest[i]];
 	}
 	
-	[_requestData setObject:signature forKey:@"api_signature"];
-	
-	NSString *requestData = [_requestData stringWithFormEncodedComponents];
+	requestData = [requestData stringByAppendingFormat:@"&api_signature=%@", signature];
 	
 	if([[_method lowercaseString] isEqualToString:@"get"]) {
 		url = [url stringByAppendingFormat:@"?%@", requestData];
@@ -107,6 +107,7 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 		_type = type;
 		
 		_requestData = [[NSMutableDictionary alloc] init];
+		_method = @"GET";
 	}
 	
 	return self;
@@ -125,6 +126,8 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 		if(error) {
 			failure(error);
 		} else {
+			NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+			
 			NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 			
 			NSError *err = nil;
