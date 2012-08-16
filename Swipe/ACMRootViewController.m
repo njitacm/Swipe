@@ -7,6 +7,7 @@
 //
 
 #import "ACMRootViewController.h"
+#import "ACMPorygonAPIRequest.h"
 
 @interface ACMRootViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -15,6 +16,7 @@
 @implementation ACMRootViewController {
 	UINavigationBar *_cartNavigationBar;
 	UITableView *_cartTableView;
+	UIButton *_cartCheckoutButton;
 	
 	UIBarButtonItem *_editBarButtonItem;
 	UIBarButtonItem *_doneBarButtonItem;
@@ -64,11 +66,47 @@
 	
 	[self.contentView addSubview:_cartTableView];
 	
+	_cartCheckoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	_cartCheckoutButton.tintColor = [[UINavigationBar appearance] tintColor];
+	[_cartCheckoutButton setTitle:NSLocalizedString(@"Check Out", @"Check Out") forState:UIControlStateNormal];
+	[_cartCheckoutButton addTarget:self action:@selector(checkout:) forControlEvents:UIControlEventTouchUpInside];
+	[_cartCheckoutButton sizeToFit];
+	_cartCheckoutButton.frame = CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.bounds.size.height, navBarBounds.size.width, navBarBounds.size.height);
+	_cartCheckoutButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+	
+	[self.contentView addSubview:_cartCheckoutButton];
+	
+	UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x - 1, 0.0, 1.0, self.contentView.frame.size.height)];
+	divider.backgroundColor = _cartTableView.separatorColor;
+	divider.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+	[self.contentView addSubview:divider];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+	
+	[_cartNavigationBar removeFromSuperview];
+	_cartNavigationBar = nil;
+	
+	[_cartTableView removeFromSuperview];
+	_cartTableView = nil;
+	
+	[_cartCheckoutButton removeFromSuperview];
+	_cartCheckoutButton = nil;
+	
+	[_contentView removeFromSuperview];
+	_contentView = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	ACMPorygonAPIRequest *inventoryRequest = [[ACMPorygonAPIRequest alloc] initWithRequestType:ACMPorygonAPIRequestTypeInventory];
+	[inventoryRequest sendWithSuccess:^(NSHTTPURLResponse *response, id responseObject) {
+		NSLog(@"%@", responseObject);
+	} failure:^(NSError *error) {
+		
+	}];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -89,6 +127,10 @@
 	}
 }
 
+- (void)checkout:(id)sender {
+	
+}
+
 #pragma mark -
 
 - (UIView *)contentView {
@@ -96,7 +138,7 @@
 		_contentView = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, 11.0, 11.0)];
 		_contentView.backgroundColor = [UIColor clearColor];
 		_contentView.opaque = NO;
-		_contentView.layer.cornerRadius = 4.0;
+		_contentView.layer.cornerRadius = 5.0;
 		_contentView.layer.masksToBounds = YES;
 		_contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	}
