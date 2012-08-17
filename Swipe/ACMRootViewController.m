@@ -8,6 +8,7 @@
 
 #import "ACMRootViewController.h"
 #import "ACMPorygonAPIRequest.h"
+#import "ACMButton.h"
 
 @interface ACMRootViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -16,7 +17,7 @@
 @implementation ACMRootViewController {
 	UINavigationBar *_cartNavigationBar;
 	UITableView *_cartTableView;
-	UIButton *_cartCheckoutButton;
+	ACMButton *_cartCheckoutButton;
 	
 	UIBarButtonItem *_editBarButtonItem;
 	UIBarButtonItem *_doneBarButtonItem;
@@ -57,7 +58,7 @@
 	
 	[self.contentView addSubview:_cartNavigationBar];
 	
-	_cartTableView = [[UITableView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x, navBarBounds.size.height + 1, navBarBounds.size.width, self.contentView.frame.size.height - (navBarBounds.size.height * 2))];
+	_cartTableView = [[UITableView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x, navBarBounds.size.height, navBarBounds.size.width, self.contentView.frame.size.height - (navBarBounds.size.height * 2.0))];
 	_cartTableView.backgroundColor = [UIColor clearColor];
 	_cartTableView.separatorColor = [UIColor colorWithWhite:0.75 alpha:1.0];
 	_cartTableView.delegate = self;
@@ -66,12 +67,11 @@
 	
 	[self.contentView addSubview:_cartTableView];
 	
-	_cartCheckoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	_cartCheckoutButton.tintColor = [[UINavigationBar appearance] tintColor];
+	_cartCheckoutButton = [ACMButton buttonWithType:UIButtonTypeCustom];
 	[_cartCheckoutButton setTitle:NSLocalizedString(@"Check Out", @"Check Out") forState:UIControlStateNormal];
 	[_cartCheckoutButton addTarget:self action:@selector(checkout:) forControlEvents:UIControlEventTouchUpInside];
 	[_cartCheckoutButton sizeToFit];
-	_cartCheckoutButton.frame = CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.bounds.size.height, navBarBounds.size.width, navBarBounds.size.height);
+	_cartCheckoutButton.frame = CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.bounds.size.height, navBarBounds.size.width, navBarBounds.size.height + 1.0);
 	_cartCheckoutButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
 	
 	[self.contentView addSubview:_cartCheckoutButton];
@@ -127,7 +127,7 @@
 		_contentView = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, 11.0, 11.0)];
 		_contentView.backgroundColor = [UIColor clearColor];
 		_contentView.opaque = NO;
-		_contentView.layer.cornerRadius = 5.0;
+		_contentView.layer.cornerRadius = 4.0;
 		_contentView.layer.masksToBounds = YES;
 		_contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	}
