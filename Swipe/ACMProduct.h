@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *objectID;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSNumber *stock;
 @property (nonatomic, strong) NSURL *pictureURL;

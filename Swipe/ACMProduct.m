@@ -18,7 +18,7 @@
 	ACMProduct *product = [[ACMProduct alloc] init];
 	product.objectID = [dict objectForKey:@"iid"];
 	product.name = [dict objectForKey:@"name"];
-	product.description = [dict objectForKey:@"description"];
+	product.text = [dict objectForKey:@"description"];
 	product.price = [dict objectForKey:@"price"];
 	product.stock = [dict objectForKey:@"stock"];
 	product.pictureURL = [NSURL URLWithString:[dict objectForKey:@"picture"]];
