@@ -18,15 +18,11 @@
 	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBar"] forBarMetrics:UIBarMetricsDefault];
 	[[UINavigationBar appearance] setTitleTextAttributes:@{
 								UITextAttributeTextColor: [UIColor colorWithWhite:0.35 alpha:1.0],
-						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:1.0 alpha:1.0],
+						  UITextAttributeTextShadowColor: [UIColor whiteColor],
 						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0)]
 	 }];
 	
-	[[UIBarButtonItem appearance] setTitleTextAttributes:@{
-								UITextAttributeTextColor: [UIColor colorWithWhite:0.35 alpha:1.0],
-						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:1.0 alpha:1.0],
-						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0)]
-	 } forState:UIControlStateNormal];
+	[[UIBarButtonItem appearance] setTitleTextAttributes:[[UINavigationBar appearance] titleTextAttributes] forState:UIControlStateNormal];
 	
 	[[UIBarButtonItem appearance] setTitleTextAttributes:@{
 								UITextAttributeTextColor: [UIColor colorWithWhite:0.25 alpha:1.0],
