@@ -33,6 +33,8 @@ typedef void(^ACMPorygonAPIRequestFailure)(NSError *error);
 
 + (void)setSecretToken:(NSString *)secretToken;
 
++ (id)requestWithRequestType:(ACMPorygonAPIRequestType)type;
+
 - (id)initWithRequestType:(ACMPorygonAPIRequestType)type;
 - (void)sendWithSuccess:(ACMPorygonAPIRequestSuccess)success failure:(ACMPorygonAPIRequestFailure)failure;
 

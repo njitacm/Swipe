@@ -100,7 +100,11 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 	ACMPorygonAPIRequestSecretToken = secretToken;
 }
 
-#pragma mark - Private Methods
+#pragma mark - Instance Methods
+
++ (id)requestWithRequestType:(ACMPorygonAPIRequestType)type {
+	return [[ACMPorygonAPIRequest alloc] initWithRequestType:type];
+}
 
 - (id)initWithRequestType:(ACMPorygonAPIRequestType)type {
 	if((self = [super init])) {
@@ -126,8 +130,6 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 		if(error) {
 			failure(error);
 		} else {
-			NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-			
 			NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 			
 			NSError *err = nil;
