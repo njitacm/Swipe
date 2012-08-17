@@ -13,6 +13,7 @@
 		C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C359A53015D877030020D52A /* QuartzCore.framework */; };
 		C359A53315D87AE00020D52A /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A53215D87AE00020D52A /* navBar.png */; };
 		C3DCDABA15DEFF0800A363F5 /* ACMProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */; };
+		C3DCDACA15DF02EB00A363F5 /* ACMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DCDAC915DF02EB00A363F5 /* ACMButton.m */; };
 		C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6A15D000A500AED527 /* UIKit.framework */; };
 		C3DF0F6D15D000A500AED527 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6C15D000A500AED527 /* Foundation.framework */; };
 		C3DF0F6F15D000A500AED527 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */; };
@@ -78,6 +79,8 @@
 		C359A53215D87AE00020D52A /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProduct.h; sourceTree = "<group>"; };
 		C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProduct.m; sourceTree = "<group>"; };
+		C3DCDAC815DF02EB00A363F5 /* ACMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMButton.h; sourceTree = "<group>"; };
+		C3DCDAC915DF02EB00A363F5 /* ACMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMButton.m; sourceTree = "<group>"; };
 		C3DF0F6615D000A500AED527 /* Swipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF0F6A15D000A500AED527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3DF0F6C15D000A500AED527 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +173,8 @@
 				C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */,
 				C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */,
 				C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */,
+				C3DCDAC815DF02EB00A363F5 /* ACMButton.h */,
+				C3DCDAC915DF02EB00A363F5 /* ACMButton.m */,
 				C3DF0F7115D000A500AED527 /* Supporting Files */,
 				C3DF0F8715D0C2BA00AED527 /* Vendor */,
 			);
@@ -321,6 +326,7 @@
 				C359A52615D875120020D52A /* ACMRootViewController.m in Sources */,
 				C3ED9AE715DDAEB8006AC3DB /* ACMInventory.m in Sources */,
 				C3DCDABA15DEFF0800A363F5 /* ACMProduct.m in Sources */,
+				C3DCDACA15DF02EB00A363F5 /* ACMButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
