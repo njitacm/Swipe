@@ -98,17 +98,6 @@
 	_contentView = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	
-	ACMPorygonAPIRequest *inventoryRequest = [[ACMPorygonAPIRequest alloc] initWithRequestType:ACMPorygonAPIRequestTypeInventory];
-	[inventoryRequest sendWithSuccess:^(NSHTTPURLResponse *response, id responseObject) {
-		NSLog(@"%@", responseObject);
-	} failure:^(NSError *error) {
-		
-	}];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
