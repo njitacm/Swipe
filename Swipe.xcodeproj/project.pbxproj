@@ -12,6 +12,7 @@
 		C359A52615D875120020D52A /* ACMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C359A52515D875120020D52A /* ACMRootViewController.m */; };
 		C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C359A53015D877030020D52A /* QuartzCore.framework */; };
 		C359A53315D87AE00020D52A /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A53215D87AE00020D52A /* navBar.png */; };
+		C3DCDABA15DEFF0800A363F5 /* ACMProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */; };
 		C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6A15D000A500AED527 /* UIKit.framework */; };
 		C3DF0F6D15D000A500AED527 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6C15D000A500AED527 /* Foundation.framework */; };
 		C3DF0F6F15D000A500AED527 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6E15D000A500AED527 /* CoreGraphics.framework */; };
@@ -20,6 +21,7 @@
 		C3DF0F7B15D000A500AED527 /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */; };
 		C3DF0F8615D000E600AED527 /* ACMPorygonAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */; };
 		C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */; };
+		C3ED9AE715DDAEB8006AC3DB /* ACMInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		C359A52515D875120020D52A /* ACMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMRootViewController.m; sourceTree = "<group>"; };
 		C359A53015D877030020D52A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C359A53215D87AE00020D52A /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
+		C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProduct.h; sourceTree = "<group>"; };
+		C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProduct.m; sourceTree = "<group>"; };
 		C3DF0F6615D000A500AED527 /* Swipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF0F6A15D000A500AED527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3DF0F6C15D000A500AED527 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +91,8 @@
 		C3DF0F8415D000E500AED527 /* ACMPorygonAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMPorygonAPIRequest.h; sourceTree = "<group>"; };
 		C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMPorygonAPIRequest.m; sourceTree = "<group>"; };
 		C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/sstoolkit/SSToolkit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C3ED9AE515DDAEB8006AC3DB /* ACMInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMInventory.h; sourceTree = "<group>"; };
+		C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMInventory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,10 @@
 				C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */,
 				C359A52415D875120020D52A /* ACMRootViewController.h */,
 				C359A52515D875120020D52A /* ACMRootViewController.m */,
+				C3ED9AE515DDAEB8006AC3DB /* ACMInventory.h */,
+				C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */,
+				C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */,
+				C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */,
 				C3DF0F7115D000A500AED527 /* Supporting Files */,
 				C3DF0F8715D0C2BA00AED527 /* Vendor */,
 			);
@@ -309,6 +319,8 @@
 				C3DF0F7B15D000A500AED527 /* ACMAppDelegate.m in Sources */,
 				C3DF0F8615D000E600AED527 /* ACMPorygonAPIRequest.m in Sources */,
 				C359A52615D875120020D52A /* ACMRootViewController.m in Sources */,
+				C3ED9AE715DDAEB8006AC3DB /* ACMInventory.m in Sources */,
+				C3DCDABA15DEFF0800A363F5 /* ACMProduct.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
