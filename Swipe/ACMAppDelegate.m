@@ -9,6 +9,7 @@
 #import "ACMAppDelegate.h"
 #import "ACMPorygonAPIRequest.h"
 #import "ACMRootViewController.h"
+#import "ACMInventory.h"
 
 @implementation ACMAppDelegate
 
@@ -44,6 +45,8 @@
 	
 	[ACMPorygonAPIRequest setConsumerToken:@"rUYGlYG7MRxisyrH0Nh9Wq"];
 	[ACMPorygonAPIRequest setSecretToken:@"rFzoQiIkQlkACeWFvBgPicgDLXhVEKXzqQFVQA1JZ"];
+	
+	[[ACMInventory sharedInventory] loadProducts];
 	
 	ACMRootViewController *rootViewController = [[ACMRootViewController alloc] init];
 	self.window.rootViewController = rootViewController;
