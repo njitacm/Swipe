@@ -30,6 +30,7 @@
 		C3DF0F8615D000E600AED527 /* ACMPorygonAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */; };
 		C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */; };
 		C3ED9AE715DDAEB8006AC3DB /* ACMInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */; };
+		C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168315DFE13A0043AD3F /* ACMProductCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		C3DF0F8815D0C2D100AED527 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/sstoolkit/SSToolkit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C3ED9AE515DDAEB8006AC3DB /* ACMInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMInventory.h; sourceTree = "<group>"; };
 		C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMInventory.m; sourceTree = "<group>"; };
+		C3F3168215DFE13A0043AD3F /* ACMProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProductCell.h; sourceTree = "<group>"; };
+		C3F3168315DFE13A0043AD3F /* ACMProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProductCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 				C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */,
 				C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */,
 				C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */,
+				C3F3168215DFE13A0043AD3F /* ACMProductCell.h */,
+				C3F3168315DFE13A0043AD3F /* ACMProductCell.m */,
 				C3DCDAC815DF02EB00A363F5 /* ACMButton.h */,
 				C3DCDAC915DF02EB00A363F5 /* ACMButton.m */,
 				C3080D7615DF162B00100F5F /* ACMCart.h */,
@@ -371,6 +376,7 @@
 				C3080D8415DF188900100F5F /* llist.c in Sources */,
 				C3080D8515DF188900100F5F /* mslib.c in Sources */,
 				C30743F315DF5280000A50F9 /* ACMCartItem.m in Sources */,
+				C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
