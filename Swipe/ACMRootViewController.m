@@ -10,8 +10,10 @@
 #import "ACMPorygonAPIRequest.h"
 #import "ACMButton.h"
 #import "ACMInventory.h"
+#import "ACMCart.h"
 
 #import <GMGridView/GMGridView.h>
+#import <GMGridView/GMGridViewLayoutStrategies.h>
 
 @interface ACMRootViewController () <UITableViewDataSource, UITableViewDelegate, GMGridViewDataSource, GMGridViewActionDelegate>
 
@@ -26,6 +28,8 @@
 	
 	UIBarButtonItem *_editBarButtonItem;
 	UIBarButtonItem *_doneBarButtonItem;
+	
+	NSNumberFormatter *_currencyFormatter;
 }
 
 @synthesize contentView = _contentView;
@@ -38,6 +42,9 @@
 		_doneBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(_toggleEditing:)];
 		
 		self.navigationItem.rightBarButtonItem = _editBarButtonItem;
+		
+		_currencyFormatter = [[NSNumberFormatter alloc] init];
+		_currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
 	}
 	
 	return self;
@@ -86,7 +93,9 @@
 	divider.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
 	[self.contentView addSubview:divider];
 	
-	_gridView = [[GMGridView alloc] initWithFrame:CGRectMake(0.0, 0.0, divider.frame.origin.y, self.contentView.frame.size.height)];
+	_gridView = [[GMGridView alloc] initWithFrame:CGRectMake(0.0, 0.0, divider.frame.origin.x, self.contentView.frame.size.height)];
+	_gridView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	_gridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontalPagedLTR];
 	_gridView.dataSource = self;
 	_gridView.actionDelegate = self;
 	[self.contentView addSubview:_gridView];
@@ -115,12 +124,14 @@
 	[_gridView reloadData];
 	
 	[[ACMInventory sharedInventory] addObserver:self forKeyPath:@"products" options:0 context:NULL];
+	[[ACMCart cart] addObserver:self forKeyPath:@"items" options:0 context:NULL];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	
 	[[ACMInventory sharedInventory] removeObserver:self forKeyPath:@"products"];
+	[[ACMCart cart] removeObserver:self forKeyPath:@"items"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -152,6 +163,38 @@
 		// TODO: Check the value of change, and only reload those cells.
 		
 		[_gridView reloadData];
+	} else if(object == [ACMCart cart] && [keyPath isEqualToString:@"items"]) {
+		NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
+		
+		if([kind intValue] == NSKeyValueChangeInsertion) {
+			NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
+			
+			[_cartTableView beginUpdates];
+			
+			NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+			
+			[indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+				[indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+			}];
+			
+			[_cartTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+			
+			[_cartTableView endUpdates];
+		} else if([kind intValue] == NSKeyValueChangeReplacement) {
+			NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
+			
+			[_cartTableView beginUpdates];
+			
+			NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+			
+			[indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+				[indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+			}];
+			
+			[_cartTableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+			
+			[_cartTableView endUpdates];
+		}
 	}
 }
 
@@ -173,15 +216,20 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 0;
+	return [[[ACMCart cart] items] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 	
 	if(!cell) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
 	}
+	
+	ACMCartItem *item = [[[ACMCart cart] items] objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = item.product.name;
+	cell.detailTextLabel.text = [_currencyFormatter stringFromNumber:[NSNumber numberWithFloat:item.count * [item.product.price floatValue]]];
 	
 	return cell;
 }
@@ -199,12 +247,12 @@
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index {
 	GMGridViewCell *cell = [gridView dequeueReusableCell];
 	
+	CGSize cellSize = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+	
 	if(!cell) {
-		cell = [[GMGridViewCell alloc] init];
+		cell = [[GMGridViewCell alloc] initWithFrame:CGRectMake(0.0, 0.0, cellSize.width, cellSize.height)];
 		
-		CGSize cellSize = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:0];
-		
-		UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, cellSize.width, cellSize.height)];
+		UIView *contentView = [[UIView alloc] initWithFrame:cell.bounds];
 		cell.contentView = contentView;
 	}
 	
@@ -216,16 +264,37 @@
 	[cell.contentView addSubview:container];
 	
 	UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+	label.textAlignment = UITextAlignmentCenter;
 	[label setText:product.name];
 	[label sizeToFit];
 	
 	CGRect frame = label.frame;
-	frame.size.width = cell.contentView.bounds.size.width;
+	frame.origin.y = container.frame.size.height;
+	frame.size.width = cell.contentView.frame.size.width;
 	label.frame = frame;
 	
 	[cell.contentView addSubview:label];
 	
 	return cell;
+}
+
+#pragma mark - GMGridViewActionDelegate
+
+- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
+	// Add one to the cart.
+	
+	ACMProduct *product = [[[ACMInventory sharedInventory] products] objectAtIndex:position];
+	
+	ACMCartItem *item = [[ACMCart cart] cartItemWithProduct:product];
+	
+	if(!item) {
+		item = [[ACMCartItem alloc] init];
+		item.product = product;
+	}
+	
+	item.count++;
+	
+	[[ACMCart cart] addCartItem:item];
 }
 
 @end
