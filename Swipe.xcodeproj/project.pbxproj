@@ -452,7 +452,10 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Vendor\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Swipe/Swipe-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/sstoolkit/\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Vendor/SSToolkit/\"",
+					"\"$(SRCROOT)/Vendor/GMGridView/\"",
+				);
 				INFOPLIST_FILE = "Swipe/Swipe-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -469,7 +472,10 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Vendor\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Swipe/Swipe-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/sstoolkit/\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Vendor/SSToolkit/\"",
+					"\"$(SRCROOT)/Vendor/GMGridView/\"",
+				);
 				INFOPLIST_FILE = "Swipe/Swipe-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
