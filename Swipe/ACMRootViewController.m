@@ -9,8 +9,11 @@
 #import "ACMRootViewController.h"
 #import "ACMPorygonAPIRequest.h"
 #import "ACMButton.h"
+#import "ACMInventory.h"
 
-@interface ACMRootViewController () <UITableViewDataSource, UITableViewDelegate>
+#import <GMGridView/GMGridView.h>
+
+@interface ACMRootViewController () <UITableViewDataSource, UITableViewDelegate, GMGridViewDataSource, GMGridViewActionDelegate>
 
 @end
 
@@ -18,6 +21,8 @@
 	UINavigationBar *_cartNavigationBar;
 	UITableView *_cartTableView;
 	ACMButton *_cartCheckoutButton;
+	
+	GMGridView *_gridView;
 	
 	UIBarButtonItem *_editBarButtonItem;
 	UIBarButtonItem *_doneBarButtonItem;
@@ -80,6 +85,11 @@
 	divider.backgroundColor = _cartTableView.separatorColor;
 	divider.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
 	[self.contentView addSubview:divider];
+	
+	_gridView = [[GMGridView alloc] initWithFrame:CGRectMake(0.0, 0.0, divider.frame.origin.y, self.contentView.frame.size.height)];
+	_gridView.dataSource = self;
+	_gridView.actionDelegate = self;
+	[self.contentView addSubview:_gridView];
 }
 
 - (void)viewDidUnload {
@@ -96,6 +106,21 @@
 	
 	[_contentView removeFromSuperview];
 	_contentView = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[_cartTableView reloadData];
+	[_gridView reloadData];
+	
+	[[ACMInventory sharedInventory] addObserver:self forKeyPath:@"products" options:0 context:NULL];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	
+	[[ACMInventory sharedInventory] removeObserver:self forKeyPath:@"products"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -118,6 +143,16 @@
 
 - (void)checkout:(id)sender {
 	
+}
+
+#pragma mark - 
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if(object == [ACMInventory sharedInventory] && [keyPath isEqualToString:@"products"]) {
+		// TODO: Check the value of change, and only reload those cells.
+		
+		[_gridView reloadData];
+	}
 }
 
 #pragma mark -
@@ -147,6 +182,48 @@
 	if(!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
 	}
+	
+	return cell;
+}
+
+#pragma mark - GMGridViewDataSource
+
+- (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
+	return [[[ACMInventory sharedInventory] products] count];
+}
+
+- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation {
+	return CGSizeMake(160, 200);
+}
+
+- (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index {
+	GMGridViewCell *cell = [gridView dequeueReusableCell];
+	
+	if(!cell) {
+		cell = [[GMGridViewCell alloc] init];
+		
+		CGSize cellSize = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:0];
+		
+		UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, cellSize.width, cellSize.height)];
+		cell.contentView = contentView;
+	}
+	
+	[[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	
+	ACMProduct *product = [[[ACMInventory sharedInventory] products] objectAtIndex:index];
+	
+	UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.width)];
+	[cell.contentView addSubview:container];
+	
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+	[label setText:product.name];
+	[label sizeToFit];
+	
+	CGRect frame = label.frame;
+	frame.size.width = cell.contentView.bounds.size.width;
+	label.frame = frame;
+	
+	[cell.contentView addSubview:label];
 	
 	return cell;
 }
