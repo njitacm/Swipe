@@ -129,7 +129,7 @@
 				C359A53215D87AE00020D52A /* navBar.png */,
 				C359A52215D874F30020D52A /* background.png */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		C3DF0F5B15D000A500AED527 = {
