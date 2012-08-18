@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3080D7315DF15C700100F5F /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = C3080D7015DF15C700100F5F /* card.png */; };
+		C3080D7415DF15C700100F5F /* ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C3080D7115DF15C700100F5F /* ipad.png */; };
+		C3080D7515DF15C700100F5F /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = C3080D7215DF15C700100F5F /* square.png */; };
 		C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C342CB7915D4C85A00B18E1E /* libGMGridView.a */; };
 		C359A52315D874F30020D52A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A52215D874F30020D52A /* background.png */; };
 		C359A52615D875120020D52A /* ACMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C359A52515D875120020D52A /* ACMRootViewController.m */; };
@@ -71,6 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3080D7015DF15C700100F5F /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
+		C3080D7115DF15C700100F5F /* ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad.png; sourceTree = "<group>"; };
+		C3080D7215DF15C700100F5F /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		C342CB7115D4C85A00B18E1E /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = Vendor/GMGridView/GMGridView/GMGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C359A52215D874F30020D52A /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C359A52415D875120020D52A /* ACMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMRootViewController.h; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 		C359A52015D874E80020D52A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C3080D7015DF15C700100F5F /* card.png */,
+				C3080D7115DF15C700100F5F /* ipad.png */,
+				C3080D7215DF15C700100F5F /* square.png */,
 				C359A53215D87AE00020D52A /* navBar.png */,
 				C359A52215D874F30020D52A /* background.png */,
 			);
@@ -310,6 +319,9 @@
 				C3DF0F7515D000A500AED527 /* InfoPlist.strings in Resources */,
 				C359A52315D874F30020D52A /* background.png in Resources */,
 				C359A53315D87AE00020D52A /* navBar.png in Resources */,
+				C3080D7315DF15C700100F5F /* card.png in Resources */,
+				C3080D7415DF15C700100F5F /* ipad.png in Resources */,
+				C3080D7515DF15C700100F5F /* square.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
