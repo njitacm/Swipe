@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30743F315DF5280000A50F9 /* ACMCartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30743F215DF5280000A50F9 /* ACMCartItem.m */; };
 		C3080D7315DF15C700100F5F /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = C3080D7015DF15C700100F5F /* card.png */; };
 		C3080D7415DF15C700100F5F /* ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C3080D7115DF15C700100F5F /* ipad.png */; };
 		C3080D7515DF15C700100F5F /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = C3080D7215DF15C700100F5F /* square.png */; };
@@ -77,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C30743F115DF5280000A50F9 /* ACMCartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMCartItem.h; sourceTree = "<group>"; };
+		C30743F215DF5280000A50F9 /* ACMCartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMCartItem.m; sourceTree = "<group>"; };
 		C3080D7015DF15C700100F5F /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		C3080D7115DF15C700100F5F /* ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad.png; sourceTree = "<group>"; };
 		C3080D7215DF15C700100F5F /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				C3DCDAC915DF02EB00A363F5 /* ACMButton.m */,
 				C3080D7615DF162B00100F5F /* ACMCart.h */,
 				C3080D7715DF162B00100F5F /* ACMCart.m */,
+				C30743F115DF5280000A50F9 /* ACMCartItem.h */,
+				C30743F215DF5280000A50F9 /* ACMCartItem.m */,
 				C3DF0F7115D000A500AED527 /* Supporting Files */,
 				C3DF0F8715D0C2BA00AED527 /* Vendor */,
 			);
@@ -365,6 +370,7 @@
 				C3080D7815DF162B00100F5F /* ACMCart.m in Sources */,
 				C3080D8415DF188900100F5F /* llist.c in Sources */,
 				C3080D8515DF188900100F5F /* mslib.c in Sources */,
+				C30743F315DF5280000A50F9 /* ACMCartItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
