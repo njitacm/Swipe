@@ -4,3 +4,6 @@
 [submodule "Vendor/GMGridView"]
 	path = Vendor/GMGridView
 	url = https://github.com/gmoledina/GMGridView.git
+[submodule "Vendor/mslib"]
+	path = Vendor/mslib
+	url = https://github.com/ieatlint/mslib.git

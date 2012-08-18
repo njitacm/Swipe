@@ -10,4 +10,6 @@
 
 @interface ACMCart : NSObject
 
+@property (nonatomic, strong, readonly) NSArray *products;
+
 @end
