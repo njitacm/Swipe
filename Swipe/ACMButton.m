@@ -13,18 +13,22 @@
 @implementation ACMButton {
 	CGGradientRef _gradientRef;
 	CGGradientRef _highlightedGradientRef;
+	CGGradientRef _disabledGradientRef;
 }
 
 - (id)initWithFrame:(CGRect)frame {
 	if((self = [super initWithFrame:frame])) {
 		NSDictionary *titleTextAttributes = [[UIBarButtonItem appearance] titleTextAttributesForState:UIControlStateNormal];
 		NSDictionary *highlightedTitleTextAttributes = [[UIBarButtonItem appearance] titleTextAttributesForState:UIControlStateHighlighted];
+		NSDictionary *disabledTitleTextAttributes = [[UIBarButtonItem appearance] titleTextAttributesForState:UIControlStateDisabled];
 		
 		[self setTitleColor:[titleTextAttributes objectForKey:UITextAttributeTextColor] forState:UIControlStateNormal];
 		[self setTitleColor:[highlightedTitleTextAttributes objectForKey:UITextAttributeTextColor] forState:UIControlStateHighlighted];
+		[self setTitleColor:[disabledTitleTextAttributes objectForKey:UITextAttributeTextColor] forState:UIControlStateDisabled];
 		
 		[self setTitleShadowColor:[titleTextAttributes objectForKey:UITextAttributeTextShadowColor] forState:UIControlStateNormal];
 		[self setTitleShadowColor:[highlightedTitleTextAttributes objectForKey:UITextAttributeTextShadowColor] forState:UIControlStateHighlighted];
+		[self setTitleShadowColor:[disabledTitleTextAttributes objectForKey:UITextAttributeTextShadowColor] forState:UIControlStateDisabled];
 		
 		[[self titleLabel] setFont:[UIFont boldSystemFontOfSize:16.0]];
 		[[self titleLabel] setShadowOffset:[[titleTextAttributes objectForKey:UITextAttributeTextShadowOffset] CGSizeValue]];
@@ -38,6 +42,11 @@
 															 [UIColor colorWithWhite:0.75 alpha:1.0],
 															 [UIColor colorWithWhite:0.65 alpha:1.0]
 															 ]);
+		
+		_disabledGradientRef = SSCreateGradientWithColors(@[
+														  [UIColor colorWithWhite:0.85 alpha:0.5],
+														  [UIColor colorWithWhite:0.75 alpha:0.5]
+														  ]);
 		
 		[self addObserver:self forKeyPath:@"highlighted" options:0 context:NULL];
 	}
@@ -53,7 +62,9 @@
 	CGPoint startPoint = CGPointZero;
 	CGPoint endPoint = CGPointMake(0.0, self.bounds.size.height);
 	
-	if(self.highlighted) {
+	if(!self.enabled) {
+		CGContextDrawLinearGradient(ctx, _disabledGradientRef, startPoint, endPoint, 0);
+	} else if(self.highlighted) {
 		CGContextDrawLinearGradient(ctx, _highlightedGradientRef, startPoint, endPoint, 0);
 	} else {
 		CGContextDrawLinearGradient(ctx, _gradientRef, startPoint, endPoint, 0);
