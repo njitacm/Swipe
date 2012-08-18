@@ -13,6 +13,8 @@
 #import "ACMCart.h"
 #import "ACMProductCell.h"
 
+#import "ACMCheckoutViewController.h"
+
 #import <GMGridView/GMGridView.h>
 #import <GMGridView/GMGridViewLayoutStrategies.h>
 
@@ -33,10 +35,8 @@
 	NSNumberFormatter *_currencyFormatter;
 }
 
-@synthesize contentView = _contentView;
-
 - (id)init {
-	if((self = [super initWithNibName:nil bundle:nil])) {
+	if((self = [super init])) {
 		self.title = NSLocalizedString(@"Cart", @"Cart");
 		
 		_editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(_toggleEditing:)];
@@ -53,11 +53,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
-	[self.view addSubview:backgroundImageView];
-	
-	[self.view addSubview:self.contentView];
 	
 	_cartNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectZero];
 	_cartNavigationBar.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
@@ -114,9 +109,6 @@
 	
 	[_cartCheckoutButton removeFromSuperview];
 	_cartCheckoutButton = nil;
-	
-	[_contentView removeFromSuperview];
-	_contentView = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -136,10 +128,6 @@
 	[[ACMCart cart] removeObserver:self forKeyPath:@"items"];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-}
-
 #pragma mark - Actions
 
 - (void)_toggleEditing:(id)sender {
@@ -155,7 +143,9 @@
 }
 
 - (void)checkout:(id)sender {
-	
+	ACMCheckoutViewController *checkoutVC = [[ACMCheckoutViewController alloc] init];
+	checkoutVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+	[self presentViewController:checkoutVC animated:YES completion:NULL];
 }
 
 #pragma mark -
@@ -200,21 +190,6 @@
 		
 		_cartCheckoutButton.enabled = ([[[ACMCart cart] items] count] > 0);
 	}
-}
-
-#pragma mark - Readonly Properties
-
-- (UIView *)contentView {
-	if(!_contentView) {
-		_contentView = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, 11.0, 11.0)];
-		_contentView.backgroundColor = [UIColor clearColor];
-		_contentView.opaque = NO;
-		_contentView.layer.cornerRadius = 4.0;
-		_contentView.layer.masksToBounds = YES;
-		_contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-	}
-	
-	return _contentView;
 }
 
 #pragma mark - UITableViewDataSource

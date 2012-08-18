@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACMViewController.h"
 
-@interface ACMRootViewController : UIViewController
-
-@property (nonatomic, strong, readonly) UIView *contentView;
+@interface ACMRootViewController : ACMViewController
 
 @end
