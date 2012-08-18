@@ -8,8 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ACMCartItem.h"
+
 @interface ACMCart : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *products;
+@property (nonatomic, strong, readonly) NSArray *items;
+
++ (ACMCart *)cart;
+
+- (void)addCartItem:(ACMCartItem *)item;
+- (ACMCartItem *)cartItemWithProduct:(ACMProduct *)product;
+- (void)removeCartItemWithProduct:(ACMProduct *)product;
+- (void)removeCartItemAtIndex:(NSUInteger)index;
 
 @end
