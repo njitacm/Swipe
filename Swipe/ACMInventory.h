@@ -11,10 +11,10 @@
 
 @interface ACMInventory : NSObject
 
+@property (nonatomic, strong, readonly) NSArray *products;
+
 + (ACMInventory *)sharedInventory;
 
 - (void)loadProducts;
-
-- (ACMProduct *)productWithObjectID:(NSInteger)objectID;
 
 @end

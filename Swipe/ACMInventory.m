@@ -10,7 +10,7 @@
 #import "ACMPorygonAPIRequest.h"
 
 @implementation ACMInventory {
-	NSMutableDictionary *_products;
+	NSMutableArray *_products;
 }
 
 + (ACMInventory *)sharedInventory {
@@ -26,7 +26,7 @@
 
 - (id)init {
 	if((self = [super init])) {
-		_products = [[NSMutableDictionary alloc] init];
+		_products = [[NSMutableArray alloc] init];
 	}
 	
 	return self;
@@ -34,20 +34,24 @@
 
 - (void)loadProducts {
 	[[ACMPorygonAPIRequest requestWithRequestType:ACMPorygonAPIRequestTypeInventory] sendWithSuccess:^(NSHTTPURLResponse *response, id responseObject) {
+		[self willChangeValueForKey:@"products"];
+		
 		for(NSDictionary *productDict in (NSArray *)responseObject) {
 			ACMProduct *product = [ACMProduct productWithDictionary:productDict];
 			
 			if(product) {
-				[_products setObject:product forKey:product.objectID];
+				[_products addObject:product];
 			}
 		}
+		
+		[self didChangeValueForKey:@"products"];
 	} failure:^(NSError *error) {
 		
 	}];
 }
 
-- (ACMProduct *)productWithObjectID:(NSInteger)objectID {
-	return [_products objectForKey:[NSNumber numberWithInteger:objectID]];
+- (NSArray *)products {
+	return _products;
 }
 
 @end
