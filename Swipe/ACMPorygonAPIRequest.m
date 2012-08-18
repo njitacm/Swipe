@@ -138,6 +138,8 @@ static NSString *ACMPorygonAPIRequestSecretToken = nil;
 			
 			if(jsonObject) {
 				success(httpResponse, jsonObject);
+			} else {
+				failure(err);
 			}
 		}
 	}];
