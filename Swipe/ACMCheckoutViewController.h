@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ACMViewController.h"
 
-@interface ACMCheckoutViewController : UIViewController
+@interface ACMCheckoutViewController : ACMViewController
 
 @end

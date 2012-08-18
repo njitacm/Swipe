@@ -31,6 +31,9 @@
 		C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */; };
 		C3ED9AE715DDAEB8006AC3DB /* ACMInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */; };
 		C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168315DFE13A0043AD3F /* ACMProductCell.m */; };
+		C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */; };
+		C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */; };
+		C3F3169015E0156C0043AD3F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F3168F15E0156C0043AD3F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,11 @@
 		C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMInventory.m; sourceTree = "<group>"; };
 		C3F3168215DFE13A0043AD3F /* ACMProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProductCell.h; sourceTree = "<group>"; };
 		C3F3168315DFE13A0043AD3F /* ACMProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProductCell.m; sourceTree = "<group>"; };
+		C3F3168515DFF0F30043AD3F /* ACMCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMCheckoutViewController.h; sourceTree = "<group>"; };
+		C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMCheckoutViewController.m; sourceTree = "<group>"; };
+		C3F3168C15DFF1DD0043AD3F /* ACMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMViewController.h; sourceTree = "<group>"; };
+		C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMViewController.m; sourceTree = "<group>"; };
+		C3F3168F15E0156C0043AD3F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F3169015E0156C0043AD3F /* AVFoundation.framework in Frameworks */,
 				C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */,
 				C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */,
 				C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */,
@@ -187,6 +196,7 @@
 		C3DF0F6915D000A500AED527 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3F3168F15E0156C0043AD3F /* AVFoundation.framework */,
 				C359A53015D877030020D52A /* QuartzCore.framework */,
 				C3DF0F6A15D000A500AED527 /* UIKit.framework */,
 				C3DF0F6C15D000A500AED527 /* Foundation.framework */,
@@ -200,22 +210,10 @@
 			children = (
 				C3DF0F7915D000A500AED527 /* ACMAppDelegate.h */,
 				C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */,
-				C3DF0F8415D000E500AED527 /* ACMPorygonAPIRequest.h */,
-				C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */,
-				C359A52415D875120020D52A /* ACMRootViewController.h */,
-				C359A52515D875120020D52A /* ACMRootViewController.m */,
-				C3ED9AE515DDAEB8006AC3DB /* ACMInventory.h */,
-				C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */,
-				C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */,
-				C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */,
-				C3F3168215DFE13A0043AD3F /* ACMProductCell.h */,
-				C3F3168315DFE13A0043AD3F /* ACMProductCell.m */,
-				C3DCDAC815DF02EB00A363F5 /* ACMButton.h */,
-				C3DCDAC915DF02EB00A363F5 /* ACMButton.m */,
-				C3080D7615DF162B00100F5F /* ACMCart.h */,
-				C3080D7715DF162B00100F5F /* ACMCart.m */,
-				C30743F115DF5280000A50F9 /* ACMCartItem.h */,
-				C30743F215DF5280000A50F9 /* ACMCartItem.m */,
+				C3F3168A15DFF1130043AD3F /* API */,
+				C3F3168815DFF0FF0043AD3F /* Model */,
+				C3F3168915DFF10B0043AD3F /* View */,
+				C3F3168B15DFF11D0043AD3F /* View Controller */,
 				C3DF0F7115D000A500AED527 /* Supporting Files */,
 				C3DF0F8715D0C2BA00AED527 /* Vendor */,
 			);
@@ -252,6 +250,54 @@
 				C3DF0F9715D0C2D100AED527 /* SSToolkitResources.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C3F3168815DFF0FF0043AD3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3ED9AE515DDAEB8006AC3DB /* ACMInventory.h */,
+				C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */,
+				C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */,
+				C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */,
+				C3080D7615DF162B00100F5F /* ACMCart.h */,
+				C3080D7715DF162B00100F5F /* ACMCart.m */,
+				C30743F115DF5280000A50F9 /* ACMCartItem.h */,
+				C30743F215DF5280000A50F9 /* ACMCartItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C3F3168915DFF10B0043AD3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3F3168215DFE13A0043AD3F /* ACMProductCell.h */,
+				C3F3168315DFE13A0043AD3F /* ACMProductCell.m */,
+				C3DCDAC815DF02EB00A363F5 /* ACMButton.h */,
+				C3DCDAC915DF02EB00A363F5 /* ACMButton.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C3F3168A15DFF1130043AD3F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF0F8415D000E500AED527 /* ACMPorygonAPIRequest.h */,
+				C3DF0F8515D000E500AED527 /* ACMPorygonAPIRequest.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		C3F3168B15DFF11D0043AD3F /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C3F3168C15DFF1DD0043AD3F /* ACMViewController.h */,
+				C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */,
+				C359A52415D875120020D52A /* ACMRootViewController.h */,
+				C359A52515D875120020D52A /* ACMRootViewController.m */,
+				C3F3168515DFF0F30043AD3F /* ACMCheckoutViewController.h */,
+				C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +423,8 @@
 				C3080D8515DF188900100F5F /* mslib.c in Sources */,
 				C30743F315DF5280000A50F9 /* ACMCartItem.m in Sources */,
 				C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */,
+				C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */,
+				C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
