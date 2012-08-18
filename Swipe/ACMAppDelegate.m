@@ -29,6 +29,14 @@
 						  UITextAttributeTextShadowColor: [UIColor colorWithWhite:0.9 alpha:1.0],
 						 UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:CGSizeMake(0.0, 1.0)]
 	 } forState:UIControlStateHighlighted];
+	
+	NSDictionary *normalTitleTextAttributes = [[UIBarButtonItem appearance] titleTextAttributesForState:UIControlStateNormal];
+	
+	[[UIBarButtonItem appearance] setTitleTextAttributes:@{
+								UITextAttributeTextColor: [[normalTitleTextAttributes objectForKey:UITextAttributeTextColor] colorWithAlphaComponent:0.5],
+						  UITextAttributeTextShadowColor: [[normalTitleTextAttributes objectForKey:UITextAttributeTextShadowColor] colorWithAlphaComponent:0.5],
+						 UITextAttributeTextShadowOffset: [normalTitleTextAttributes objectForKey:UITextAttributeTextShadowOffset]
+	 } forState:UIControlStateDisabled];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
