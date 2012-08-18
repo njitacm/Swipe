@@ -11,6 +11,7 @@
 #import "ACMButton.h"
 #import "ACMInventory.h"
 #import "ACMCart.h"
+#import "ACMProductCell.h"
 
 #import <GMGridView/GMGridView.h>
 #import <GMGridView/GMGridViewLayoutStrategies.h>
@@ -85,6 +86,7 @@
 	[_cartCheckoutButton sizeToFit];
 	_cartCheckoutButton.frame = CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.bounds.size.height, navBarBounds.size.width, navBarBounds.size.height + 1.0);
 	_cartCheckoutButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+	_cartCheckoutButton.enabled = NO;
 	
 	[self.contentView addSubview:_cartCheckoutButton];
 	
@@ -156,7 +158,7 @@
 	
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if(object == [ACMInventory sharedInventory] && [keyPath isEqualToString:@"products"]) {
@@ -195,10 +197,12 @@
 			
 			[_cartTableView endUpdates];
 		}
+		
+		_cartCheckoutButton.enabled = ([[[ACMCart cart] items] count] > 0);
 	}
 }
 
-#pragma mark -
+#pragma mark - Readonly Properties
 
 - (UIView *)contentView {
 	if(!_contentView) {
@@ -224,6 +228,7 @@
 	
 	if(!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	
 	ACMCartItem *item = [[[ACMCart cart] items] objectAtIndex:indexPath.row];
@@ -232,6 +237,24 @@
 	cell.detailTextLabel.text = [_currencyFormatter stringFromNumber:[NSNumber numberWithFloat:item.count * [item.product.price floatValue]]];
 	
 	return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if(editingStyle == UITableViewCellEditingStyleDelete) {
+		[[ACMCart cart] removeCartItemAtIndex:indexPath.row];
+		
+		[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+		
+		if([[tableView dataSource] tableView:tableView numberOfRowsInSection:indexPath.section] == 0 && [tableView isEditing]) {
+			[self _toggleEditing:tableView];
+		}
+	}
 }
 
 #pragma mark - GMGridViewDataSource
@@ -245,35 +268,18 @@
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index {
-	GMGridViewCell *cell = [gridView dequeueReusableCell];
+	ACMProductCell *cell = (ACMProductCell *)[gridView dequeueReusableCell];
 	
 	CGSize cellSize = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
 	
 	if(!cell) {
-		cell = [[GMGridViewCell alloc] initWithFrame:CGRectMake(0.0, 0.0, cellSize.width, cellSize.height)];
-		
-		UIView *contentView = [[UIView alloc] initWithFrame:cell.bounds];
-		cell.contentView = contentView;
+		cell = [[ACMProductCell alloc] initWithFrame:CGRectMake(0.0, 0.0, cellSize.width, cellSize.height)];
 	}
-	
-	[[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 	
 	ACMProduct *product = [[[ACMInventory sharedInventory] products] objectAtIndex:index];
 	
-	UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.width)];
-	[cell.contentView addSubview:container];
-	
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-	label.textAlignment = UITextAlignmentCenter;
-	[label setText:product.name];
-	[label sizeToFit];
-	
-	CGRect frame = label.frame;
-	frame.origin.y = container.frame.size.height;
-	frame.size.width = cell.contentView.frame.size.width;
-	label.frame = frame;
-	
-	[cell.contentView addSubview:label];
+	cell.titleLabel.text = product.name;
+	cell.detailTextLabel.text = [_currencyFormatter stringFromNumber:product.price];
 	
 	return cell;
 }
@@ -295,6 +301,16 @@
 	item.count++;
 	
 	[[ACMCart cart] addCartItem:item];
+	
+	if(item.count == [product.stock intValue]) {
+		ACMProductCell *cell = (ACMProductCell *)[gridView cellForItemAtIndex:position];
+		
+		if(![cell isKindOfClass:[ACMProductCell class]]) {
+			return;
+		}
+		
+		cell.enabled = NO;
+	}
 }
 
 @end
