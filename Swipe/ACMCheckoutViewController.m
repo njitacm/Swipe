@@ -66,7 +66,7 @@
 	CABasicAnimation *translateAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
 	translateAnimation.fromValue = [NSValue valueWithCGPoint:position];
 	translateAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(position.x, _squareImageView.layer.position.y + _squareImageView.layer.bounds.size.height + 50)];
-	translateAnimation.duration = 1.0;
+	translateAnimation.duration = 0.75;
 	translateAnimation.beginTime = 0.75;
 	translateAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	translateAnimation.removedOnCompletion = NO;
@@ -76,7 +76,7 @@
 	fadeOutAnimation.fromValue = [NSNumber numberWithFloat:1.0];
 	fadeOutAnimation.toValue = [NSNumber numberWithFloat:0.0];
 	fadeOutAnimation.duration = 0.5;
-	fadeOutAnimation.beginTime = 2.25;
+	fadeOutAnimation.beginTime = 2.0;
 	fadeOutAnimation.removedOnCompletion = NO;
 	fadeOutAnimation.fillMode = kCAFillModeForwards;
 	
