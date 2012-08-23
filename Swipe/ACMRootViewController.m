@@ -24,7 +24,10 @@
 
 @implementation ACMRootViewController {
 	UINavigationBar *_cartNavigationBar;
+	
 	UITableView *_cartTableView;
+	UILabel *_cartTotalLabel;
+	
 	ACMButton *_cartCheckoutButton;
 	
 	GMGridView *_gridView;
@@ -66,7 +69,7 @@
 	
 	[self.contentView addSubview:_cartNavigationBar];
 	
-	_cartTableView = [[UITableView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x, navBarBounds.size.height, navBarBounds.size.width, self.contentView.frame.size.height - (navBarBounds.size.height * 2.0))];
+	_cartTableView = [[UITableView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x, navBarBounds.size.height, navBarBounds.size.width, self.contentView.frame.size.height - (navBarBounds.size.height * 2.0) - 24.0)];
 	_cartTableView.backgroundColor = [UIColor clearColor];
 	_cartTableView.separatorColor = [UIColor colorWithWhite:0.75 alpha:1.0];
 	_cartTableView.delegate = self;
@@ -75,11 +78,27 @@
 	
 	[self.contentView addSubview:_cartTableView];
 	
+	UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.frame.size.height, _cartTableView.frame.size.width, 24.0)];
+	footerView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+	
+	UILabel *totalLabel = [[UILabel alloc] initWithFrame:CGRectInset(footerView.bounds, 10.0, 0.0)];
+	totalLabel.text = NSLocalizedString(@"Total", @"Total");
+	totalLabel.backgroundColor = [UIColor clearColor];
+	[footerView addSubview:totalLabel];
+	
+	_cartTotalLabel = [[UILabel alloc] initWithFrame:totalLabel.frame];
+	_cartTotalLabel.text = [_currencyFormatter stringFromNumber:[[ACMCart cart] total]];
+	_cartTotalLabel.backgroundColor = [UIColor clearColor];
+	_cartTotalLabel.textAlignment = UITextAlignmentRight;
+	[footerView addSubview:_cartTotalLabel];
+	
+	[self.contentView addSubview:footerView];
+	
 	_cartCheckoutButton = [ACMButton buttonWithType:UIButtonTypeCustom];
 	[_cartCheckoutButton setTitle:NSLocalizedString(@"Check Out", @"Check Out") forState:UIControlStateNormal];
 	[_cartCheckoutButton addTarget:self action:@selector(checkout:) forControlEvents:UIControlEventTouchUpInside];
 	[_cartCheckoutButton sizeToFit];
-	_cartCheckoutButton.frame = CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.bounds.size.height, navBarBounds.size.width, navBarBounds.size.height + 1.0);
+	_cartCheckoutButton.frame = CGRectMake(navBarBounds.origin.x, footerView.frame.origin.y + footerView.bounds.size.height, navBarBounds.size.width, navBarBounds.size.height + 1.0);
 	_cartCheckoutButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
 	_cartCheckoutButton.enabled = NO;
 	
@@ -119,6 +138,7 @@
 	
 	[[ACMInventory sharedInventory] addObserver:self forKeyPath:@"products" options:0 context:NULL];
 	[[ACMCart cart] addObserver:self forKeyPath:@"items" options:0 context:NULL];
+	[[ACMCart cart] addObserver:self forKeyPath:@"total" options:0 context:NULL];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -126,6 +146,7 @@
 	
 	[[ACMInventory sharedInventory] removeObserver:self forKeyPath:@"products"];
 	[[ACMCart cart] removeObserver:self forKeyPath:@"items"];
+	[[ACMCart cart] removeObserver:self forKeyPath:@"total"];
 }
 
 #pragma mark - Actions
@@ -155,40 +176,44 @@
 		// TODO: Check the value of change, and only reload those cells.
 		
 		[_gridView reloadData];
-	} else if(object == [ACMCart cart] && [keyPath isEqualToString:@"items"]) {
-		NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
-		
-		if([kind intValue] == NSKeyValueChangeInsertion) {
-			NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
+	} else if(object == [ACMCart cart]) {
+		if([keyPath isEqualToString:@"items"]) {
+			NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
 			
-			[_cartTableView beginUpdates];
+			if([kind intValue] == NSKeyValueChangeInsertion) {
+				NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
+				
+				[_cartTableView beginUpdates];
+				
+				NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+				
+				[indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+					[indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+				}];
+				
+				[_cartTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+				
+				[_cartTableView endUpdates];
+			} else if([kind intValue] == NSKeyValueChangeReplacement) {
+				NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
+				
+				[_cartTableView beginUpdates];
+				
+				NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+				
+				[indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+					[indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+				}];
+				
+				[_cartTableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+				
+				[_cartTableView endUpdates];
+			}
 			
-			NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-			
-			[indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-				[indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
-			}];
-			
-			[_cartTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-			
-			[_cartTableView endUpdates];
-		} else if([kind intValue] == NSKeyValueChangeReplacement) {
-			NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
-			
-			[_cartTableView beginUpdates];
-			
-			NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-			
-			[indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-				[indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
-			}];
-			
-			[_cartTableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-			
-			[_cartTableView endUpdates];
+			_cartCheckoutButton.enabled = ([[[ACMCart cart] items] count] > 0);
+		} else if([keyPath isEqualToString:@"total"]) {
+			_cartTotalLabel.text = [_currencyFormatter stringFromNumber:[[ACMCart cart] total]];
 		}
-		
-		_cartCheckoutButton.enabled = ([[[ACMCart cart] items] count] > 0);
 	}
 }
 
