@@ -14,6 +14,7 @@
 		C3080D7815DF162B00100F5F /* ACMCart.m in Sources */ = {isa = PBXBuildFile; fileRef = C3080D7715DF162B00100F5F /* ACMCart.m */; };
 		C3080D8415DF188900100F5F /* llist.c in Sources */ = {isa = PBXBuildFile; fileRef = C3080D8015DF188900100F5F /* llist.c */; };
 		C3080D8515DF188900100F5F /* mslib.c in Sources */ = {isa = PBXBuildFile; fileRef = C3080D8215DF188900100F5F /* mslib.c */; };
+		C30B885B15E5E4910003FB18 /* ACMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B885A15E5E4910003FB18 /* ACMAlertView.m */; };
 		C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C342CB7915D4C85A00B18E1E /* libGMGridView.a */; };
 		C359A52315D874F30020D52A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A52215D874F30020D52A /* background.png */; };
 		C359A52615D875120020D52A /* ACMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C359A52515D875120020D52A /* ACMRootViewController.m */; };
@@ -93,6 +94,8 @@
 		C3080D8115DF188900100F5F /* llist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = llist.h; path = Vendor/mslib/llist.h; sourceTree = SOURCE_ROOT; };
 		C3080D8215DF188900100F5F /* mslib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mslib.c; path = Vendor/mslib/mslib.c; sourceTree = SOURCE_ROOT; };
 		C3080D8315DF188900100F5F /* mslib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mslib.h; path = Vendor/mslib/mslib.h; sourceTree = SOURCE_ROOT; };
+		C30B885915E5E4910003FB18 /* ACMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMAlertView.h; sourceTree = "<group>"; };
+		C30B885A15E5E4910003FB18 /* ACMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMAlertView.m; sourceTree = "<group>"; };
 		C342CB7115D4C85A00B18E1E /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = Vendor/GMGridView/GMGridView/GMGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C359A52215D874F30020D52A /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C359A52415D875120020D52A /* ACMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMRootViewController.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				C3F3168315DFE13A0043AD3F /* ACMProductCell.m */,
 				C3DCDAC815DF02EB00A363F5 /* ACMButton.h */,
 				C3DCDAC915DF02EB00A363F5 /* ACMButton.m */,
+				C30B885915E5E4910003FB18 /* ACMAlertView.h */,
+				C30B885A15E5E4910003FB18 /* ACMAlertView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */,
 				C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */,
 				C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */,
+				C30B885B15E5E4910003FB18 /* ACMAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
