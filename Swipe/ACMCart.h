@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong, readonly) NSArray *items;
 
+@property (nonatomic, strong, readonly) NSNumber *total;
+
 + (ACMCart *)cart;
 
 - (void)addCartItem:(ACMCartItem *)item;
