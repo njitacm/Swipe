@@ -7,6 +7,7 @@
 //
 
 #import "ACMCheckoutViewController.h"
+#import "ACMAlertView.h"
 
 @implementation ACMCheckoutViewController {
 	UIImageView *_ipadImageView;
@@ -60,8 +61,13 @@
 	
 	[self.contentView addSubview:swipeLabel];
 	
+	// TODO: Style this button.
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setTitle:NSLocalizedString(@"Modify Order", @"Modify Order") forState:UIControlStateNormal];
+
+#warning Change selector back after finished testing cancelOrder:.
+
+	[button addTarget:self action:@selector(cancelOrder:) forControlEvents:UIControlEventTouchUpInside];
 	button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
 	[button sizeToFit];
 	
@@ -79,6 +85,23 @@
 	
 	[self _startAnimation];
 }
+
+#pragma mark - Actions
+
+- (void)modifyOrder:(id)sender {
+	[self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)cancelOrder:(id)sender {
+	ACMAlertView *alertView = [[ACMAlertView alloc] initWithTitle:NSLocalizedString(@"Cancel Order?", @"Cancel Order?") message:NSLocalizedString(@"Are you sure you want to cancel your order? This will clear your cart and cannot be undone.", @"Are you sure you want to cancel your order? This will clear your cart and cannot be undone.")];
+	alertView.cancelButtonIndex = [alertView addButtonWithTitle:@"Don't Do It!"]; // "Never Mind"?
+	[alertView addButtonWithTitle:@"Yes, I'm Sure" block:^ { // "Cancel Order"?
+		
+	}];
+	[alertView show];
+}
+
+#pragma mark - Animation
 
 - (void)_startAnimation {
 	CABasicAnimation *fadeInAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -125,6 +148,8 @@
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+	// TODO: add some sort of flag to stop the animation.
+	
 	[_cardImageView.layer removeAnimationForKey:@"swipeAnimation"];
 	
 	[self _startAnimation];
