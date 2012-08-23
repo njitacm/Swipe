@@ -44,6 +44,34 @@
 	_cardImageView.frame = frame;
 	
 	[self.contentView insertSubview:_cardImageView belowSubview:_squareImageView];
+	
+	UILabel *swipeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	swipeLabel.text = NSLocalizedString(@"Swipe your NJIT ID", @"Swipe your NJIT ID");
+	swipeLabel.font = [UIFont boldSystemFontOfSize:30.0];
+	swipeLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+	swipeLabel.backgroundColor = [UIColor clearColor];
+	swipeLabel.textColor = [UIColor colorWithWhite:0.25 alpha:1.0];
+	[swipeLabel sizeToFit];
+	
+	frame = swipeLabel.frame;
+	frame.origin.x = self.contentView.frame.size.width - frame.size.width - 60.0;
+	frame.origin.y = 120.0;
+	swipeLabel.frame = frame;
+	
+	[self.contentView addSubview:swipeLabel];
+	
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setTitle:NSLocalizedString(@"Modify Order", @"Modify Order") forState:UIControlStateNormal];
+	button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+	[button sizeToFit];
+	
+	frame = button.frame;
+	frame.origin.x = swipeLabel.frame.origin.x;
+	frame.origin.y = swipeLabel.frame.origin.y + swipeLabel.frame.size.height + 10.0;
+	frame.size.width = swipeLabel.frame.size.width;
+	button.frame = frame;
+	
+	[self.contentView addSubview:button];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
