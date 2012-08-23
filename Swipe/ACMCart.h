@@ -23,4 +23,6 @@
 - (void)removeCartItemWithProduct:(ACMProduct *)product;
 - (void)removeCartItemAtIndex:(NSUInteger)index;
 
+- (void)resetCart;
+
 @end

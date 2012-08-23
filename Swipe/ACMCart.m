@@ -107,6 +107,22 @@
 	[self didChangeValueForKey:@"total"];
 }
 
+- (void)resetCart {
+	NSMutableIndexSet *indexSet = [[NSMutableIndexSet alloc] init];
+	
+	for(NSUInteger i = 0; i < [_items count]; i++) {
+		[indexSet addIndex:i];
+	}
+	
+	[self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"items"];
+	_items = [[NSMutableArray alloc] init];
+	[self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexSet forKey:@"items"];
+	
+	[self willChangeValueForKey:@"total"];
+	_total = nil;
+	[self didChangeValueForKey:@"total"];
+}
+
 - (NSArray *)items {
 	return _items;
 }
