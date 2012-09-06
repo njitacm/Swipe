@@ -6,12 +6,13 @@
 //  Copyright (c) 2012 ACM. All rights reserved.
 //
 
-#import "ACMCheckoutViewController.h"
+#import "ACMSwipeViewController.h"
 #import "ACMAlertView.h"
 #import "ACMCart.h"
 #import "ACMSwiper.h"
+#import "ACMButton.h"
 
-@implementation ACMCheckoutViewController {
+@implementation ACMSwipeViewController {
 	UIImageView *_ipadImageView;
 	UIImageView *_squareImageView;
 	UIImageView *_cardImageView;
@@ -65,8 +66,9 @@
 	
 	[self.contentView addSubview:swipeLabel];
 	
-	// TODO: Style this button.
-	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+
+	ACMButton *button = [ACMButton buttonWithType:UIButtonTypeCustom];
+	button.type = ACMButtonTypeRoundedRect;
 	[button setTitle:NSLocalizedString(@"Modify Order", @"Modify Order") forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(modifyOrder:) forControlEvents:UIControlEventTouchUpInside];
 	button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;

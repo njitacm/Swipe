@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ACMViewController.h"
 
-@interface ACMCheckoutViewController : ACMViewController
+@interface ACMSwipeViewController : ACMViewController
 
 @end
