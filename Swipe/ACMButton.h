@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+	ACMButtonTypeNormal = 0,
+	ACMButtonTypeRoundedRect = 1
+} ACMButtonType;
+
 @interface ACMButton : UIButton
+
+@property (nonatomic, assign) ACMButtonType type;
 
 @end

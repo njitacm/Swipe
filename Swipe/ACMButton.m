@@ -54,9 +54,7 @@
 	return self;
 }
 
-- (void)drawRect:(CGRect)rect {
-	[super drawRect:rect];
-	
+- (void)drawNormalButton {
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
 	
 	CGPoint startPoint = CGPointZero;
@@ -95,6 +93,20 @@
 	[bottomBorder set];
 	
 	CGContextFillRect(ctx, CGRectMake(0.0, self.bounds.size.height - 1.0, self.bounds.size.width, 1.0));
+}
+
+- (void)drawRoundedRectButton {
+	
+}
+
+- (void)drawRect:(CGRect)rect {
+	[super drawRect:rect];
+	
+	if(self.type == ACMButtonTypeNormal) {
+		[self drawNormalButton];
+	} else if(self.type == ACMButtonTypeRoundedRect) {
+		[self drawRoundedRectButton];
+	}
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
