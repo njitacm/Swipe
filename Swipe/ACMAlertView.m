@@ -35,10 +35,6 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if(buttonIndex < 0 || buttonIndex >= [[_blocks allKeys] count]) {
-		return;
-	}
-	
 	dispatch_block_t block = [_blocks objectForKey:[NSNumber numberWithInteger:buttonIndex]];
 	
 	if(block) {
