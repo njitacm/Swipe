@@ -13,7 +13,11 @@
 #import <SSToolkit/NSDictionary+SSToolkitAdditions.h>
 
 #if defined(DEBUG)
+#if TARGET_IPHONE_SIMULATOR
 NSString *const ACMPorygonAPIRoot = @"http://porygon.dev/api/1/";
+#else
+NSString *const ACMPorygonAPIRoot = @"http://192.168.1.103/api/1/";
+#endif
 #else
 NSString *const ACMPorygonAPIRoot = @""; // TODO: Fill this in with the production URL once Porygon goes live.
 #endif
