@@ -37,7 +37,7 @@
 		C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F9315D0C2D100AED527 /* libSSToolkit.a */; };
 		C3ED9AE715DDAEB8006AC3DB /* ACMInventory.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */; };
 		C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168315DFE13A0043AD3F /* ACMProductCell.m */; };
-		C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */; };
+		C3F3168715DFF0F30043AD3F /* ACMSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168615DFF0F30043AD3F /* ACMSwipeViewController.m */; };
 		C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -135,8 +135,8 @@
 		C3ED9AE615DDAEB8006AC3DB /* ACMInventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMInventory.m; sourceTree = "<group>"; };
 		C3F3168215DFE13A0043AD3F /* ACMProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProductCell.h; sourceTree = "<group>"; };
 		C3F3168315DFE13A0043AD3F /* ACMProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProductCell.m; sourceTree = "<group>"; };
-		C3F3168515DFF0F30043AD3F /* ACMCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMCheckoutViewController.h; sourceTree = "<group>"; };
-		C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMCheckoutViewController.m; sourceTree = "<group>"; };
+		C3F3168515DFF0F30043AD3F /* ACMSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSwipeViewController.h; sourceTree = "<group>"; };
+		C3F3168615DFF0F30043AD3F /* ACMSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSwipeViewController.m; sourceTree = "<group>"; };
 		C3F3168C15DFF1DD0043AD3F /* ACMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMViewController.h; sourceTree = "<group>"; };
 		C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,8 +319,8 @@
 				C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */,
 				C359A52415D875120020D52A /* ACMRootViewController.h */,
 				C359A52515D875120020D52A /* ACMRootViewController.m */,
-				C3F3168515DFF0F30043AD3F /* ACMCheckoutViewController.h */,
-				C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */,
+				C3F3168515DFF0F30043AD3F /* ACMSwipeViewController.h */,
+				C3F3168615DFF0F30043AD3F /* ACMSwipeViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 				C3080D8515DF188900100F5F /* mslib.c in Sources */,
 				C30743F315DF5280000A50F9 /* ACMCartItem.m in Sources */,
 				C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */,
-				C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */,
+				C3F3168715DFF0F30043AD3F /* ACMSwipeViewController.m in Sources */,
 				C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */,
 				C30B885B15E5E4910003FB18 /* ACMAlertView.m in Sources */,
 				C3B859AC15E870FA00DD5126 /* ACMSwiper.m in Sources */,
