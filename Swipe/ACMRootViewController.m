@@ -81,13 +81,19 @@
 	UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(navBarBounds.origin.x, _cartTableView.frame.origin.y + _cartTableView.frame.size.height, _cartTableView.frame.size.width, 24.0)];
 	footerView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
 	
+	UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, footerView.frame.size.width, 1.0)];
+	lineView.backgroundColor = _cartTableView.separatorColor;
+	[footerView addSubview:lineView];
+	
 	UILabel *totalLabel = [[UILabel alloc] initWithFrame:CGRectInset(footerView.bounds, 10.0, 0.0)];
 	totalLabel.text = NSLocalizedString(@"Total", @"Total");
 	totalLabel.backgroundColor = [UIColor clearColor];
+	totalLabel.textColor = [UIColor colorWithWhite:0.25 alpha:1.0];
 	[footerView addSubview:totalLabel];
 	
 	_cartTotalLabel = [[UILabel alloc] initWithFrame:totalLabel.frame];
 	_cartTotalLabel.text = [_currencyFormatter stringFromNumber:[[ACMCart cart] total]];
+	_cartTotalLabel.textColor = totalLabel.textColor;
 	_cartTotalLabel.backgroundColor = [UIColor clearColor];
 	_cartTotalLabel.textAlignment = UITextAlignmentRight;
 	[footerView addSubview:_cartTotalLabel];
