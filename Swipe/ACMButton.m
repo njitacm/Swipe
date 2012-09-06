@@ -96,7 +96,57 @@
 }
 
 - (void)drawRoundedRectButton {
+	CGContextRef ctx = UIGraphicsGetCurrentContext();
 	
+	CGGradientRef borderGradient = NULL;
+	
+	if(self.highlighted) {
+		borderGradient = SSCreateGradientWithColors(@[
+													[UIColor colorWithWhite:0.65 alpha:1.0],
+													[UIColor colorWithWhite:0.55 alpha:1.0]
+													]);
+	} else {
+		borderGradient = SSCreateGradientWithColors(@[
+													[UIColor colorWithWhite:0.75 alpha:1.0],
+													[UIColor colorWithWhite:0.65 alpha:1.0]
+													]);
+	}
+	
+	CGContextSaveGState(ctx);
+	
+	[[UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:3.0] addClip];
+	
+	CGPoint startPoint = CGPointZero;
+	CGPoint endPoint = CGPointMake(0.0, self.bounds.size.height);
+	
+	CGContextDrawLinearGradient(ctx, borderGradient, startPoint, endPoint, 0.0);
+	
+	CGContextRestoreGState(ctx);
+	
+	CGContextSaveGState(ctx);
+	
+	[[UIBezierPath bezierPathWithRoundedRect:CGRectInset(self.bounds, 1.0, 1.0) cornerRadius:2.0] addClip];
+	
+	startPoint.y += 1.0;
+	endPoint.y -= 1.0;
+	
+	if(!self.enabled) {
+		CGContextDrawLinearGradient(ctx, _disabledGradientRef, startPoint, endPoint, 0);
+	} else if(self.highlighted) {
+		CGContextDrawLinearGradient(ctx, _highlightedGradientRef, startPoint, endPoint, 0);
+	} else {
+		CGContextDrawLinearGradient(ctx, _gradientRef, startPoint, endPoint, 0);
+	}
+	
+	CGContextRestoreGState(ctx);
+	
+	CGContextSaveGState(ctx);
+	
+	[[UIColor colorWithWhite:1.0 alpha:0.25] setStroke];
+	
+	[[UIBezierPath bezierPathWithRoundedRect:CGRectInset(self.bounds, 2.0, 2.0) cornerRadius:1.0] stroke];
+	
+	CGContextRestoreGState(ctx);
 }
 
 - (void)drawRect:(CGRect)rect {
