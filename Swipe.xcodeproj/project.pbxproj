@@ -15,11 +15,16 @@
 		C3080D8415DF188900100F5F /* llist.c in Sources */ = {isa = PBXBuildFile; fileRef = C3080D8015DF188900100F5F /* llist.c */; };
 		C3080D8515DF188900100F5F /* mslib.c in Sources */ = {isa = PBXBuildFile; fileRef = C3080D8215DF188900100F5F /* mslib.c */; };
 		C30B885B15E5E4910003FB18 /* ACMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B885A15E5E4910003FB18 /* ACMAlertView.m */; };
+		C30F3EC915F6FE9A00209461 /* ACMSwipeDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C30F3EC815F6FE9A00209461 /* ACMSwipeDecoder.m */; };
+		C335997A15E9C7C0002EB722 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C335997915E9C7C0002EB722 /* AVFoundation.framework */; };
 		C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C342CB7915D4C85A00B18E1E /* libGMGridView.a */; };
 		C359A52315D874F30020D52A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A52215D874F30020D52A /* background.png */; };
 		C359A52615D875120020D52A /* ACMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C359A52515D875120020D52A /* ACMRootViewController.m */; };
 		C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C359A53015D877030020D52A /* QuartzCore.framework */; };
 		C359A53315D87AE00020D52A /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C359A53215D87AE00020D52A /* navBar.png */; };
+		C3AD35B815F4F47100AB7CBA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AD35B715F4F47100AB7CBA /* CoreMedia.framework */; };
+		C3B859A915E8704800DD5126 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B859A815E8704800DD5126 /* AudioToolbox.framework */; };
+		C3B859AC15E870FA00DD5126 /* ACMSwiper.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B859AB15E870FA00DD5126 /* ACMSwiper.m */; };
 		C3DCDABA15DEFF0800A363F5 /* ACMProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */; };
 		C3DCDACA15DF02EB00A363F5 /* ACMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DCDAC915DF02EB00A363F5 /* ACMButton.m */; };
 		C3DF0F6B15D000A500AED527 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF0F6A15D000A500AED527 /* UIKit.framework */; };
@@ -34,7 +39,6 @@
 		C3F3168415DFE13A0043AD3F /* ACMProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168315DFE13A0043AD3F /* ACMProductCell.m */; };
 		C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */; };
 		C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */; };
-		C3F3169015E0156C0043AD3F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F3168F15E0156C0043AD3F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,12 +100,20 @@
 		C3080D8315DF188900100F5F /* mslib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mslib.h; path = Vendor/mslib/mslib.h; sourceTree = SOURCE_ROOT; };
 		C30B885915E5E4910003FB18 /* ACMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMAlertView.h; sourceTree = "<group>"; };
 		C30B885A15E5E4910003FB18 /* ACMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMAlertView.m; sourceTree = "<group>"; };
+		C30F3EC715F6FE9A00209461 /* ACMSwipeDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSwipeDecoder.h; sourceTree = "<group>"; };
+		C30F3EC815F6FE9A00209461 /* ACMSwipeDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSwipeDecoder.m; sourceTree = "<group>"; };
+		C335997715E9C3B5002EB722 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		C335997915E9C7C0002EB722 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C342CB7115D4C85A00B18E1E /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = Vendor/GMGridView/GMGridView/GMGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C359A52215D874F30020D52A /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C359A52415D875120020D52A /* ACMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMRootViewController.h; sourceTree = "<group>"; };
 		C359A52515D875120020D52A /* ACMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMRootViewController.m; sourceTree = "<group>"; };
 		C359A53015D877030020D52A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C359A53215D87AE00020D52A /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
+		C3AD35B715F4F47100AB7CBA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C3B859A815E8704800DD5126 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C3B859AA15E870FA00DD5126 /* ACMSwiper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSwiper.h; sourceTree = "<group>"; };
+		C3B859AB15E870FA00DD5126 /* ACMSwiper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSwiper.m; sourceTree = "<group>"; };
 		C3DCDAB815DEFF0800A363F5 /* ACMProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProduct.h; sourceTree = "<group>"; };
 		C3DCDAB915DEFF0800A363F5 /* ACMProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProduct.m; sourceTree = "<group>"; };
 		C3DCDAC815DF02EB00A363F5 /* ACMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMButton.h; sourceTree = "<group>"; };
@@ -127,7 +139,6 @@
 		C3F3168615DFF0F30043AD3F /* ACMCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMCheckoutViewController.m; sourceTree = "<group>"; };
 		C3F3168C15DFF1DD0043AD3F /* ACMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMViewController.h; sourceTree = "<group>"; };
 		C3F3168D15DFF1DD0043AD3F /* ACMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMViewController.m; sourceTree = "<group>"; };
-		C3F3168F15E0156C0043AD3F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +146,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3F3169015E0156C0043AD3F /* AVFoundation.framework in Frameworks */,
+				C3AD35B815F4F47100AB7CBA /* CoreMedia.framework in Frameworks */,
+				C335997A15E9C7C0002EB722 /* AVFoundation.framework in Frameworks */,
+				C3B859A915E8704800DD5126 /* AudioToolbox.framework in Frameworks */,
 				C359A53115D877030020D52A /* QuartzCore.framework in Frameworks */,
 				C342CB7C15D4C86700B18E1E /* libGMGridView.a in Frameworks */,
 				C3DF0F9815D0C2E200AED527 /* libSSToolkit.a in Frameworks */,
@@ -199,7 +212,10 @@
 		C3DF0F6915D000A500AED527 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C3F3168F15E0156C0043AD3F /* AVFoundation.framework */,
+				C3AD35B715F4F47100AB7CBA /* CoreMedia.framework */,
+				C335997915E9C7C0002EB722 /* AVFoundation.framework */,
+				C335997715E9C3B5002EB722 /* AudioUnit.framework */,
+				C3B859A815E8704800DD5126 /* AudioToolbox.framework */,
 				C359A53015D877030020D52A /* QuartzCore.framework */,
 				C3DF0F6A15D000A500AED527 /* UIKit.framework */,
 				C3DF0F6C15D000A500AED527 /* Foundation.framework */,
@@ -213,6 +229,10 @@
 			children = (
 				C3DF0F7915D000A500AED527 /* ACMAppDelegate.h */,
 				C3DF0F7A15D000A500AED527 /* ACMAppDelegate.m */,
+				C3B859AA15E870FA00DD5126 /* ACMSwiper.h */,
+				C3B859AB15E870FA00DD5126 /* ACMSwiper.m */,
+				C30F3EC715F6FE9A00209461 /* ACMSwipeDecoder.h */,
+				C30F3EC815F6FE9A00209461 /* ACMSwipeDecoder.m */,
 				C3F3168A15DFF1130043AD3F /* API */,
 				C3F3168815DFF0FF0043AD3F /* Model */,
 				C3F3168915DFF10B0043AD3F /* View */,
@@ -431,6 +451,8 @@
 				C3F3168715DFF0F30043AD3F /* ACMCheckoutViewController.m in Sources */,
 				C3F3168E15DFF1DD0043AD3F /* ACMViewController.m in Sources */,
 				C30B885B15E5E4910003FB18 /* ACMAlertView.m in Sources */,
+				C3B859AC15E870FA00DD5126 /* ACMSwiper.m in Sources */,
+				C30F3EC915F6FE9A00209461 /* ACMSwipeDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,10 +496,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -500,6 +519,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;

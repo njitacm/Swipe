@@ -10,4 +10,7 @@
 
 @interface ACMSwiper : NSObject
 
+- (void)start;
+- (void)stop;
+
 @end

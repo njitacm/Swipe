@@ -8,6 +8,21 @@
 
 #import "ACMSwipeDecoder.h"
 
-@implementation ACMSwipeDecoder
+@implementation ACMSwipeDecoder {
+	NSData *_data;
+}
+
+- (id)initWithData:(NSData *)data {
+	if((self = [super init])) {
+		_data = data;
+	}
+	
+	return self;
+}
+
+- (void)decode {
+	
+}
+
 
 @end

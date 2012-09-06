@@ -10,4 +10,6 @@
 
 @interface ACMSwipeDecoder : NSObject
 
+- (id)initWithData:(NSData *)data;
+
 @end
