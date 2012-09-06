@@ -13,7 +13,7 @@
 #import "ACMCart.h"
 #import "ACMProductCell.h"
 
-#import "ACMCheckoutViewController.h"
+#import "ACMSwipeViewController.h"
 
 #import <GMGridView/GMGridView.h>
 #import <GMGridView/GMGridViewLayoutStrategies.h>
@@ -170,7 +170,7 @@
 }
 
 - (void)checkout:(id)sender {
-	ACMCheckoutViewController *checkoutVC = [[ACMCheckoutViewController alloc] init];
+	ACMSwipeViewController *checkoutVC = [[ACMSwipeViewController alloc] init];
 	checkoutVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	[self presentViewController:checkoutVC animated:YES completion:NULL];
 }
