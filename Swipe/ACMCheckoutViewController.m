@@ -8,11 +8,15 @@
 
 #import "ACMCheckoutViewController.h"
 #import "ACMAlertView.h"
+#import "ACMCart.h"
+#import "ACMSwiper.h"
 
 @implementation ACMCheckoutViewController {
 	UIImageView *_ipadImageView;
 	UIImageView *_squareImageView;
 	UIImageView *_cardImageView;
+	
+	ACMSwiper *_swiper;
 }
 
 - (void)viewDidLoad {
@@ -64,10 +68,7 @@
 	// TODO: Style this button.
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setTitle:NSLocalizedString(@"Modify Order", @"Modify Order") forState:UIControlStateNormal];
-
-#warning Change selector back after finished testing cancelOrder:.
-
-	[button addTarget:self action:@selector(cancelOrder:) forControlEvents:UIControlEventTouchUpInside];
+	[button addTarget:self action:@selector(modifyOrder:) forControlEvents:UIControlEventTouchUpInside];
 	button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
 	[button sizeToFit];
 	
@@ -84,6 +85,17 @@
 	[super viewDidAppear:animated];
 	
 	[self _startAnimation];
+	
+	_swiper = [[ACMSwiper alloc] init];
+	[_swiper start];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+	[super viewDidDisappear:animated];
+	
+	[self _stopAnimation];
+	
+	[_swiper stop];
 }
 
 #pragma mark - Actions
@@ -94,9 +106,11 @@
 
 - (void)cancelOrder:(id)sender {
 	ACMAlertView *alertView = [[ACMAlertView alloc] initWithTitle:NSLocalizedString(@"Cancel Order?", @"Cancel Order?") message:NSLocalizedString(@"Are you sure you want to cancel your order? This will clear your cart and cannot be undone.", @"Are you sure you want to cancel your order? This will clear your cart and cannot be undone.")];
-	alertView.cancelButtonIndex = [alertView addButtonWithTitle:@"Don't Do It!"]; // "Never Mind"?
-	[alertView addButtonWithTitle:@"Yes, I'm Sure" block:^ { // "Cancel Order"?
+	alertView.cancelButtonIndex = [alertView addButtonWithTitle:@"Never Mind"];
+	[alertView addButtonWithTitle:@"Cancel Order" block:^{
+		[[ACMCart cart] resetCart];
 		
+		[self dismissViewControllerAnimated:YES completion:NULL];
 	}];
 	[alertView show];
 }
@@ -145,6 +159,10 @@
 	group.delegate = self;	
 	
 	[_cardImageView.layer addAnimation:group forKey:@"swipeAnimation"];
+}
+
+- (void)_stopAnimation {
+	[_cardImageView.layer removeAnimationForKey:@"swipeAnimation"];
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
